@@ -1,0 +1,28 @@
+from claselistaviajeros import Listaviajeros
+
+def opcion0(A,i):
+    print("Adiós")
+def opcion1(A,i):
+    print('Cantidad de millas del viajero: {} {} es de: {}'.format(A.get_viajero(i).get_Nombre(),A.get_viajero(i).get_apellido(),A.get_viajero(i).get_millas()))
+    input('')
+def opcion2(A,i):
+    print('cantidad de millas actuales de: {} {} es de: {} '.format(A.get_viajero(i).get_Nombre(),A.get_viajero(i).get_apellido(),A.get_viajero(i).get_millas()))
+    x=int(input("ingresar Millas a acumular: "))
+    A.get_viajero(i).AcumularMillas(x)
+    print("millas actuales: ",A.get_viajero(i).get_millas())
+    input('')
+def opcion3(A,i):
+    print('cantidad de millas actuales de: {} {} es de: {} '.format(A.get_viajero(i).get_Nombre(),A.get_viajero(i).get_apellido(),A.get_viajero(i).get_millas()))
+    x=int(input("ingresar cantiad de millas a canjear: "))
+    A.get_viajero(i).CanjearMillas(x)
+    print("millas actuales: ",A.get_viajero(i).get_millas())
+    input('')
+switcher = {
+    0: opcion0,
+    1: opcion1,
+    2: opcion2,
+    3: opcion3
+    }
+def switch(argument,lista,indice):
+    func = switcher.get(argument, lambda: print("Opción incorrecta"))
+    func(lista,indice)
