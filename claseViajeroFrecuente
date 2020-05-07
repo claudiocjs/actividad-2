@@ -1,0 +1,53 @@
+class ViajeroFrecuente:
+    __NumViajero=-1
+    __DNI=--1
+    __Nombre=''
+    __Apellido=''
+    __MillasAcumuladas=-1
+    def __init__(self,NumV=-1,dni=-1,Nom='',Ape='',MillasA=-1):
+        if isinstance(NumV,int):
+            self.__NumViajero = NumV
+        else:
+            print("ERROR Numv: tipo de dato de parametro erroneo")
+        if isinstance(dni,int):
+            self.__DNI = dni
+        else:
+            print("ERROR dni: tipo de dato de parametro erroneo")
+        if isinstance(Nom,str):
+            self.__Nombre = Nom
+        else: 
+            print("ERROR nom: tipo de dato de parametro erroneo")
+        if isinstance(Ape,str):
+            self.__Apellido = Ape
+        else:
+            print("ERROR ape: tipo de dato de parametro erroneo")
+        if isinstance(MillasA,int):
+            self.__MillasAcumuladas = MillasA
+        else:
+            print("ERROR MillasA: tipo de dato de parametro erroneo")
+            
+    def get_Num_Viajero(self):
+        return self.__NumViajero
+    def get_millas(self):
+        return self.__MillasAcumuladas
+    def get_Nombre(self):
+        return self.__Nombre
+    def get_apellido(self):
+        return self.__Apellido
+    def __str__(self):
+        return '({}: {} {} {} millas:{})'.format(self.__NumViajero,self.__DNI,self.__Nombre,self.__Apellido,self.__MillasAcumuladas)
+    def CantTotMillas(self):
+        return self.__MillasAcumuladas
+    def AcumularMillas(self,millas):
+        if isinstance(millas,int):
+            self.__MillasAcumuladas += millas
+        else: 
+            print ("tipo de dato de parametro erroneo")
+    def CanjearMillas(self,millas):
+        if isinstance(millas,int):
+            if millas<= self.__MillasAcumuladas:
+                self.__MillasAcumuladas -=millas
+            else: 
+                print("Error: cantidad de millas mayor a las acumuladas")
+        else: 
+            print("tipo de dato de parametro erroneo")
