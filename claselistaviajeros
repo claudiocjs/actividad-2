@@ -1,0 +1,35 @@
+from claseViajeroFrecuente import ViajeroFrecuente
+
+class Listaviajeros:
+    lista=[]
+    def __init__(self):
+        self.__lista=[]
+    def agregar_viajero(self,v):
+        if isinstance(v,ViajeroFrecuente):
+            self.__lista.append(v)
+    def get_viajero(self,i):
+        if i < len(self.__lista):
+            return self.__lista[i]
+        else:
+            print("indice fuera de rango")
+    def tamaño(self):
+        return len(self.__lista)
+    def mostrarviajeros(self):
+        for viajero in self.__lista:
+            print(viajero)
+    def testviajerosfrecuentes(self):
+        numv= int (input("numero de viajero= "))
+        nom= input("nombre= ")
+        ape= input("apellido= ")
+        dni= int (input("DNI= "))
+        millasa= int (input("Millas Acumuladas= "))
+        V1 = ViajeroFrecuente(numv,dni,nom,ape,millasa)
+        self.agregar_viajero(V1)
+    def busquedaxnum(self,numero): 
+        i=0
+        while i < len(self.__lista) and self.__lista[i].get_Num_Viajero() != int(numero):
+                i+=1
+        if i< len(self.__lista):
+            return i
+        else:
+            return -1
